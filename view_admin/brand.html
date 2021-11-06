@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link href="../css/style_admin.css" rel="stylesheet">
+    <title>Brand</title>
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+                <i class="fas fa-store"></i>
+                <span>Double N</span>
+            </div>
+            <div class="list-group list-group-flush my-3">
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text">
+                    <i class="fas fa-tachometer-alt me-2"></i>
+                    <span>DashBoard</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">
+                    <i class="fab fa-bandcamp"></i>
+                    <span>Brand</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-gift me-2"></i>
+                    <span>Product</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-chevron-square-down"></i>
+                    <span>Order</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+                    <i class="fas fa-power-off me-2"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Dashboard</h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav> 
+            <section class="container text-center">
+                <h2 class="font-weight-bold">Brand List</h2>
+                <hr>
+            </section>
+            <section class="container text-right pt-5 py-4">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="far fa-plus"></i> New
+                </button>
+            </section>
+            <section id="table-container" class="container">
+                <table style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Image</td>
+                            <td>Brand</td>
+                            <td>Total</td>
+                            <td>Status</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>24</td>
+                            <td><img src="../images/shoes/1.jpg"></td>
+                            <td>
+                                <h5>Bitis</h5>
+                            </td>
+                            <td>
+                                <h5>65</h5>
+                            </td>
+                            <td>
+                                <h5>Active</h5>
+                            </td>
+                            <td>
+                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-edit"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div> 
+                        <div class="modal-body">     
+                            <form role="form" class="form-vertical">   
+                                <div class="form-group text-left">
+                                    <label>Name</label>    
+                                    <input class="form-control" type="text" placeholder="Please input name">
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Image</label>
+                                    <input type="file" class="form-control-file">
+                                  </div>
+                                <div class="form-group text-left">
+                                    <label>Status</label>
+                                    <select class="form-control">
+                                      <option>Active</option>
+                                      <option>Inactive</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <button type="button" class="btn btn-success">Save</button>
+                                    <button type="button" class="btn btn-secondary">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -----------------------------------------Script------------------------------------------------------>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+        var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
+
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+    </script>
+</body>
+
+</html>
