@@ -240,6 +240,11 @@ hr{
     opacity: 1;
 }
 
+#view-more{
+    cursor: pointer;
+    color:#8d8c89;
+}
+
 /* footer */
 footer{
     background-color: #222222;

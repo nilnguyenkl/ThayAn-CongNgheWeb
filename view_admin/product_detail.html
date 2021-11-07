@@ -65,30 +65,55 @@
                 <div class="col-sm-10" style="margin: auto;">
                     <form role="form" class="form-horizontal">
                         <div class="form-group">    
-                            <label class="col-sm-3" style="margin-left: -15px;">Tên sản phẩm:</label>
+                            <label class="form-label">Tên sản phẩm:</label>
                             <input class="form-control" type="text" placeholder="Nhập vào tên sản phẩm">
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-3" style="margin-left: -15px;">Giá:</label>
+                            <label class="form-label">Giá:</label>
                             <input class="form-control" type="text" placeholder="Nhập giá sản phẩm">
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-3" style="margin-left: -15px;">Brand:</label>
+                            <label class="form-label">Brand:</label>
                             <select class="form-control">
                                 <option>Active</option>
                                 <option>Inactive</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-3" style="margin-left: -15px;">Số lượng:</label>
+                            <label class="form-label">Số lượng:</label>
                             <input class="form-control" type="number" placeholder="Nhập giá sản phẩm">
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-3" style="margin-left: -15px;">Mô tả</label>
+                            <label class="form-label">Màu</label>
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Chất liệu</label>
+                            <input class="form-control" type="text" placeholder="Nhập chất liệu">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Giới tính</label>
+                            <select class="form-control">
+                                <option>Nam</option>
+                                <option>Nu</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Mô tả</label>
                             <textarea class="form-control" placeholder="Nhập mô tả sản phẩm"></textarea>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary">Save</button>
+                            <div class="gallery"></div>
+                            <div class="custom-file">
+                                <input type="file" id="gallery-photo-add" multiple>
+                            </div>
+                        </div>
+                        <div class="form-group mt-5 mb-5">
+                            <button class="btn btn-primary btn-lg btn-block">Save</button>
                         </div>
                     </form>
                 </div>
@@ -107,6 +132,8 @@
         toggleButton.onclick = function () {
             el.classList.toggle("toggled");
         };
+    </script>
+    <script>
     </script>
 </body>
 
