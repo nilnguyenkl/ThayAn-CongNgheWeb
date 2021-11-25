@@ -40,6 +40,11 @@ $(document).ready(function(){
     // Send data
     $('#submit').click(function(){
         // Data
+        var formData = new FormData();
+        var total_file = $('#gallery-photo-add').get(0).files.length; 
+        for (let i = 0; i < total_file; i++ ){
+            formData.append('images', $('#gallery-photo-add').get(0).files[i]);
+        }
         var product = {
             title : $('#name').val(),
             productCode : $('#code').val(),
@@ -50,21 +55,15 @@ $(document).ready(function(){
             gioiTinh : $('#sex').val(),
             colorCode : $('#color').val(),
             chatLieuCode : $('#material').val(),
-            images: [
-                "thu1.jpg",
-                "thu2.jpg",
-                "thu3.jpg",
-                "thu4.jpg"
-            ]
         }
-        // data =  JSON.stringify(product);
-        // alert(data);
+        data =  JSON.stringify(product);
+        formData.append('product', data);
         $.ajax({
             type: 'POST',
-            dataType: 'json',
-            url: 'http://localhost:8082/api/products',
-            data: JSON.stringify(product),
-            // data: product,
+            contentType: false,
+            processData: false,
+            url: 'http://localhost:8082/api/admin/products',
+            data: formData,
             success: function (res) {
                 alert(res);
             },
