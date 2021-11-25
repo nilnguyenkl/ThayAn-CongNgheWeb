@@ -73,51 +73,7 @@
         </div>
     </nav>
 
-    <section class="container sproduct my-5 pt-5">
-        <div class="row">
-            <div class="col-lg-5 col-md-12 col-12">
-                <img id="main-image" class="img-fluid w-100" src="../images/shop/1.jpg">
-                <div class="small-img-group">
-                    <div class="small-img-group">
-                        <div class="small-img-col">
-                            <img id="small-img" src="../images/shop/1.jpg" width="100%" class="small-img">
-                        </div>
-                        <div class="small-img-col">
-                            <img src="../images/shop/24.jpg" width="100%" class="small-img">
-                        </div>
-                        <div class="small-img-col">
-                            <img src="../images/shop/25.jpg" width="100%" class="small-img">
-                        </div>
-                        <div class="small-img-col">
-                            <img src="../images/shop/26.jpg" width="100%" class="small-img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12 col-12">
-                <h6>Home / T-Shirt</h6>
-                <h3>Men's Fashion T Shirt</h3>
-                <h2>$139.00</h2>
-                <select class="my-3">
-                    <option>Select Size</option>
-                    <option>XL</option>
-                    <option>XXL</option>
-                    <option>Small</option>
-                    <option>Large</option>
-                </select>
-                <input type="number" value="1">
-                <button class="buy-btn">ADD TO CART</button>
-                <h4>Product Details</h4>
-                <span>
-                    qeqeihjòkàocalmfámđammadjákdpakpđâpsdolápd
-                    adjạdokadpakdpkapfkvmâcpkapkspkdpakdpápkdpa
-                    qeqeihjòkàocalmfámđammadjákdpakpđâpsdolápd
-                    adjạdokadpakdpkapfkvmâcpkapkspkdpakdpápkdpa
-                    qeqeihjòkàocalmfámđammadjákdpakpđâpsdolápd
-                    adjạdokadpakdpkapfkvmâcpkapkspkdpakdpápkdpa
-                </span>
-            </div>
-        </div>
+    <section id="sproduct-container" class="container sproduct my-5 pt-5">
     </section>
 
     <section id="featured" class="my-5 pb-5">
@@ -197,53 +153,29 @@
             </div>
             <div class="form-group">
                 <label class="form-label">2. Viết nhận xét của bạn vào bên dưới</label>
-                <textarea class="form-control" placeholder="Nhập mô tả sản phẩm"></textarea>
+                <textarea id="content" class="form-control" placeholder="Nhập mô tả sản phẩm"></textarea>
             </div>
             <div class="form-group">
                 <label class="form-label">Thông tin cá nhân của bạn (Thông tin của bạn được bảo mật)</label>
                 <div class="row">
                     <div class="col-sm-12 mb-3">
-                        <input class="form-control" type="text" placeholder="Tên bạn">
+                        <input id="nameCus" class="form-control" type="text" placeholder="Tên bạn">
                     </div>
                     <div class="col-sm-6">
-                        <input class="form-control" type="text" placeholder="Số điện thoại của bạn">
+                        <input id="phoneCus" class="form-control" type="text" placeholder="Số điện thoại của bạn">
                     </div>
                     <div class="col-sm-6">
-                        <input class="form-control" type="text" placeholder="Email của bạn">
+                        <input id="emailCus" class="form-control" type="text" placeholder="Email của bạn">
                     </div>
                 </div>
             </div>
-            <div class="mb-3">
-                <input type="file">
-            </div>
             <div class="form-group">
-                <button>Thêm đánh giá</button>
+                <button id="add-comment">Thêm đánh giá</button>
             </div>
         </div>
         <hr style="width: 80%;" class="mt-5">
         
-        <div class="col-mg-12">
-            <div class="row mb-3">
-                <div class="col-mg-4 ml-3 mr-3">
-                    <img style="width: 60px; height: 60px;" class="rounded-circle" src="../images/featured/1.jpg">
-                </div>
-                <div class="col-mg-6">
-                    <span class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <br>
-                    <span style="color:lightslategrey; font-size: 12px;">14:38 : 11/02/2021</span>
-                    <br>
-                    <span style="color: green; font-size: 12px;"><i class="fal fa-map-marker-check"></i> Đã mua hàng</span>
-                    <br>
-                    <span>Sản phẩm này dở vc. Khuyên ae đừng mua</span>
-                </div>
-            </div>
-            <span id="view-more"> View More</span>
+        <div id="all-comment" class="col-mg-12">
         </div>
     </section>
     
@@ -301,6 +233,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/cus_sproduct.js"></script>
     <script>
         $(document).ready(function(){
             $('.small-img').click(function(){
