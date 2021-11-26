@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link href="../css/style_admin.css" rel="stylesheet">
-    <title>Order details</title>
+    <title>Order</title>
 </head>
 
 <body>
@@ -20,19 +20,19 @@
                 <span>Double N</span>
             </div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text">
+                <a href="dashboard.html" class="list-group-item list-group-item-action bg-transparent second-text">
                     <i class="fas fa-tachometer-alt me-2"></i>
                     <span>DashBoard</span>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text">
+                <a href="admin_brand.html" class="list-group-item list-group-item-action bg-transparent second-text">
                     <i class="fab fa-bandcamp"></i>
                     <span>Brand</span>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text">
+                <a href="admin_product.html" class="list-group-item list-group-item-action bg-transparent second-text">
                     <i class="fas fa-gift me-2"></i>
                     <span>Product</span>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">
+                <a href="admin_order.html" class="list-group-item list-group-item-action bg-transparent second-text active">
                     <i class="fas fa-chevron-square-down"></i>
                     <span>Order</span>
                 </a>
@@ -58,35 +58,59 @@
                 </button>
             </nav>
             <section class="container text-center">
-                <h2 class="font-weight-bold">Order Detail</h2>
+                <h2 class="font-weight-bold">Order List</h2>
                 <hr>
             </section>
-            <section class="container mt-4">
-                <h4>Ho Va Ten: Nguyen Quoc Nil</h4>
-                <h4>Date: 24/12/2000</h4>
-                <h4>Total: 30000000 VND</h4>
+            <section class="container text-center pt-3 col-md-6">
+                <select class="form-control">
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
             </section>
-            <section class="container mt-4">
+            <section class="container mt-5">
                 <table class="table table-striped table-warning">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Images</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td><img style="height: 50px; width: 50px;" src="../images/featured/1.jpg"></td>
-                            <td>111111111111111111111111111111111111111111</td>
-                            <td>4</td>
-                            <td>1234565</td>
+                            <td>Nguyen Quoc Nil</td>
+                            <td>0946825770</td>
+                            <td>nilnguyenkl@gmail.com</td>
+                            <td>Ap 5, xa Khanh Lam, huyen U Minh, tinh Ca Mau</td>
+                            <td>3000000</td>
+                            <td>24/12/2000</td>
+                            <td>Approved</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button"
+                                            class="btn btn-danger dropdown-toggle"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <i class="far fa-cog"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="admin_order_details.html">View</a></li>
+                                        <li><span class="dropdown-item">Approve</span></li>
+                                        <li><span class="dropdown-item">Delete</span></li>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
+
             </section>
         </div>
     </div>

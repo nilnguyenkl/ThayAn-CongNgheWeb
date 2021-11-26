@@ -1,4 +1,11 @@
 $(document).ready(function(){
+
+    $('.small-img').click(function(){
+        // var attr = $(this).attr("src");
+        // $('#main-image').attr("src", attr);
+        // console.log("123");
+        console.log("123");
+    });
     
     function GetParameterValues(param) {  
         var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');  
@@ -10,31 +17,31 @@ $(document).ready(function(){
         }  
     }
     var id = GetParameterValues('id'); 
-    console.log('http://localhost:8082/api/products/' + id)
+
     // Show product detail
     $.ajax({
         dataType: 'json',
         url: 'http://localhost:8082/api/products/' + id,
         success: function (data) {
+            var total_images = data.images.length;
+            var getImages = '';
+            for (let i = 0; i < total_images; i++ ){
+                getImages = getImages + `
+                    <div class="small-img-col">
+                        <img id="small-img" src="http://localhost:8082/images/productImages/${data.images[i]}" width="100%" class="small-img">
+                    </div>
+                `;
+            }
             htmls =  `
                 <div class="row">
                     <div class="col-lg-5 col-md-12 col-12">
                         <img id="main-image" class="img-fluid w-100" src="http://localhost:8082/images/productImages/${data.images[0]}">
-                        <div class="small-img-group">
-                            <div class="small-img-group">
-                                <div class="small-img-col">
-                                    <img id="small-img" src="../images/shop/1.jpg" width="100%" class="small-img">
-                                </div>
-                                <div class="small-img-col">
-                                    <img src="../images/shop/24.jpg" width="100%" class="small-img">
-                                </div>
-                                <div class="small-img-col">
-                                    <img src="../images/shop/25.jpg" width="100%" class="small-img">
-                                </div>
-                                <div class="small-img-col">
-                                    <img src="../images/shop/26.jpg" width="100%" class="small-img">
-                                </div>
-                            </div>
+                        <div id="getImage" class="small-img-group">
+                            <div class="small-img-group">`
+                            +
+                                getImages
+                            +
+                        `   </div>  
                         </div>
                     </div>
 
