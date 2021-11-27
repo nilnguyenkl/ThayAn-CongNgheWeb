@@ -1,11 +1,4 @@
 $(document).ready(function(){
-
-    $('.small-img').click(function(){
-        // var attr = $(this).attr("src");
-        // $('#main-image').attr("src", attr);
-        // console.log("123");
-        console.log("123");
-    });
     
     function GetParameterValues(param) {  
         var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');  
@@ -28,7 +21,7 @@ $(document).ready(function(){
             for (let i = 0; i < total_images; i++ ){
                 getImages = getImages + `
                     <div class="small-img-col">
-                        <img id="small-img" src="http://localhost:8082/images/productImages/${data.images[i]}" width="100%" class="small-img">
+                        <img id="${i}" onclick= "previewImg(this.id)" src="http://localhost:8082/images/productImages/${data.images[i]}" width="100%" class="small-img">
                     </div>
                 `;
             }
@@ -89,7 +82,6 @@ $(document).ready(function(){
             url: 'http://localhost:8082/api/comments/' + id,
             data: data,
             success: function (res) {
-                // alert(res);
                 showComment();
             },
             error: function(res){
@@ -135,3 +127,8 @@ $(document).ready(function(){
     }
     showComment();
 });
+
+function previewImg(id){
+    var attr = $("#"+id).attr("src");
+    $('#main-image').attr("src", attr);
+}

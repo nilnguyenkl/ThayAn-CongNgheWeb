@@ -1,10 +1,9 @@
-// http://localhost/images/productImages/{name}
 $(document).ready(function(){
     // Show all product
     $.ajax({
         dataType: 'json',
         url: 'http://localhost:8082/api/products',
-        success: function (data) {
+        success: function (data) {     
             var htmls = data.products.map(function (item) {
                 return `
                     <div class="product text-center col-lg-3 col-mg-4 col-12">
