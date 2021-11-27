@@ -25,6 +25,7 @@ $(document).ready(function(){
         success: function (data) {
             var total_images = data.images.length;
             var getImages = '';
+            var pprice = formatCash(data.price+'');
             for (let i = 0; i < total_images; i++ ){
                 getImages = getImages + `
                     <div class="small-img-col">
@@ -44,23 +45,22 @@ $(document).ready(function(){
                         `   </div>  
                         </div>
                     </div>
-
                     <div class="col-lg-6 col-md-12 col-12">
-                        <h6>Home / ${data.brandName}</h6>
-                        <h3>${data.title}</h3>
-                        <h2>${data.price} VND</h2>
+                        <h6 value=${data.brandName}>Home / ${data.brandName}</h6>
+                        <h3 id="pname" value=${data.title}>${data.title}</h3>
+                        <h2 id="pprice" value=${data.price}>${pprice} VND</h2>
                         <h4 class="mt-4">Product Details</h4>
-                        <span>
-                            Quantity : ${data.quantity} <br>
-                            Brand Name : ${data.brandName} <br>
-                            Sex : ${data.gioiTinh} <br>
-                            Color Name : ${data.colorName} <br>
-                            Material : ${data.chatLieuName} <br>
-                            Descript : ${data.describes} <br> 
-                        </span>
+                        <ul style="list-style: none;">
+                            <li value=${data.quantity}>Quantity : ${data.quantity}</li>
+                            <li id="pbrand" value=${data.brandName}>Brand Name : ${data.brandName}</li>
+                            <li value=${data.gioiTinh}>Sex : ${data.gioiTinh}</li>
+                            <li value="${data.colorName}">Color Name : ${data.colorName}</li>
+                            <li value=${data.chatLieuName}>Material : ${data.chatLieuName}</li>
+                            <li value=${data.describes}>Descript : ${data.describes}</li>
+                        </ul>
                         <div class="mt-4">
-                            <input type="number" value="1">
-                            <button class="buy-btn">ADD TO CART</button>
+                            <input id="quantity" type="number" value="1" min="1">
+                            <button id="add" onclick="addtocart(${data.id},'${data.images[0]}',${data.price},'${data.title}')" class="buy-btn">ADD TO CART</button>
                         </div>
                     </div>
                 </div>
@@ -69,8 +69,6 @@ $(document).ready(function(){
         }
     });
 
-
-    
     // Add comment
     $('#add-comment').click(function(){
         var comment = {
@@ -135,3 +133,4 @@ $(document).ready(function(){
     }
     showComment();
 });
+
