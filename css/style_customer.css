@@ -342,6 +342,16 @@ footer p{
     justify-content: flex-end;
 }
 
+#search{
+    border-radius: 5px;
+    border: 1px solid gray;
+    outline: none;
+    padding-left: 5px;
+}
 
+#search::placeholder {
+    font-size: 15px;
+    font-style: italic;
+}
 
 
