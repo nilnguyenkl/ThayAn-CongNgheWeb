@@ -89,7 +89,6 @@ function renderCart() {
 
 
 function updatecart(pid, qtt) {
-    console.log(qtt);
     if (pid !== null && qtt !== null) {
         var cart = localStorage.getItem("cart");
         var pcart = JSON.parse(cart) != null ? JSON.parse(cart) : [];
@@ -123,5 +122,3 @@ function formatCash(str) {
         return ((index % 3) ? next : (next + ',')) + prev
     })
 }
-
-renderCart();
