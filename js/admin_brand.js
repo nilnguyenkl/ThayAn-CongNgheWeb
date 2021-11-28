@@ -44,11 +44,11 @@ $(document).ready(function(){
             data: formData,
             success: function (res) {
                 showAllBrand();
+                window.location.href = "admin_brand.html";
             },
             error: function(res){
-                alert(res);
+                alert("Add brand is failed");
             }
         });
-
     });
 });

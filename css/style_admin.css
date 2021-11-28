@@ -121,12 +121,6 @@ h6{
 }
 
 /* Table */
-
-
-#table-container{
-    overflow-x: auto;
-}
-
 #table-container table{
     border-collapse: collapse;
     width: 100%;
@@ -164,8 +158,11 @@ h6{
     object-fit: cover;
 }
 
+
+/* Cai khac */
 hr{
     width: 30px;
     height: 2px;
     background-color: #fb774b ;
 }
+

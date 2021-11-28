@@ -64,27 +64,29 @@
                 </button>
             </section>
             <section id="table-container" class="container">
-                <table style="width: 100%;">
-                    <thead>
-                        <tr>
-                            <td>Code</td>
-                            <td>Image</td>
-                            <td>Brand</td>
-                            <td>Total</td>
-                        </tr>
-                    </thead>
-                    <tbody id="content-all-brand"></tbody>
-                </table>
+                <div style="overflow: hidden; overflow-y: auto; max-height: 370px;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <td>Code</td>
+                                <td>Image</td>
+                                <td>Brand</td>
+                                <td>Total</td>
+                            </tr>
+                        </thead>
+                        <tbody id="content-all-brand"></tbody>
+                    </table>
+                </div>
             </section>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <h5 class="modal-title" id="exampleModalLabel">NEW BRAND</h5>
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                 <i class="fal fa-times"></i>
-                            </button>
+                            </button> -->
                         </div> 
                         <div class="modal-body">     
                             <form role="form" class="form-vertical">
@@ -102,7 +104,7 @@
                                   </div>
                                 <div class="form-group text-center">
                                     <button id="submit-new-brand" type="button" class="btn btn-success">Save</button>
-                                    <button type="button" class="btn btn-secondary">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
                                 </div>
                             </form>
                         </div>

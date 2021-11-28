@@ -95,9 +95,10 @@ function deleteProduct(id){
         dataType: 'json',
         url: 'http://localhost:8082/api/admin/products/' + id,
         success: function (res) {
-            //
+            showProductC();
         },
         error: function(res){
+            alert("Deleted product");
             showProductC(); 
         }
     });

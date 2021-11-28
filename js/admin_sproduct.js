@@ -67,10 +67,11 @@ $(document).ready(function(){
             url: 'http://localhost:8082/api/admin/products',
             data: formData,
             success: function (res) {
-               alert("1");
+               alert("Add product is successful");
+               window.location.href = "admin_product.html";
             },
             error: function(res){
-                alert("0");
+                alert("Add product is failed");
             }
         });
     });

@@ -102,10 +102,11 @@ function updateProduct(){
             url: 'http://localhost:8082/api/admin/products/' + id,
             data: data,
             success: function (res) {
-               alert("1");
+               alert("Change product is successful");
+               window.location.href = "admin_product.html";
             },
             error: function(res){
-                alert("0");
+                alert("Change product is failed");
             }
         });
     });
