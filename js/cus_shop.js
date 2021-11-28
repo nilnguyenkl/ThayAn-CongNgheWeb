@@ -1,14 +1,29 @@
+var url ="http://localhost:8082/api/products";
+var pageParam = GetParameterValues('page');
+var titleParam = GetParameterValues('title');
+
+
+function getUrl() {
+    if (titleParam != null && pageParam != null) {
+        return url+ '?page='+(pageParam-1)+'&title='+titleParam+'';
+    } else if (titleParam != null && pageParam == null) {
+        return url+ '?title='+titleParam+'';
+    } else if (titleParam == null && pageParam != null) {
+        return url+ '?page='+(pageParam-1)+'';
+    } else {
+        return url;
+    }
+}
 
 // http://localhost/images/productImages/{name}
-$(document).ready(function () {
+function init() {
     // Show all product
-    var pageParam = GetParameterValues('page');
     $.ajax({
         dataType: 'json',
-        url: pageParam != null ? 'http://localhost:8082/api/products?page='+(pageParam-1)+'':"http://localhost:8082/api/products",
+        url: getUrl(),
         success: function (data) {
             var htmls = data.products.map(function (item) {
-                var price = formatCash(item.price+'')
+                var price = formatCash(item.price + '')
                 return `
                     <div class="product text-center col-lg-3 col-mg-4 col-12">
                         <a style = "text-decoration: inherit; color: inherit;" href="sproduct.html?id=${item.id}">
@@ -28,86 +43,189 @@ $(document).ready(function () {
                 `;
             })
             $('#all-product').html(htmls.join(''));
-            if(pageParam === null) {
-                pt(data.totalPages,0);
+            if (pageParam === null) {
+                pt(data.totalPages, 0, titleParam);
             } else {
-                pt(data.totalPages,pageParam-1);
+                pt(data.totalPages, pageParam - 1,titleParam);
             }
         }
     });
-});
+}
 
-
-function pt(totalPages, currentPage) {
+function pt(totalPages, currentPage, title) {
 
     console.log(totalPages, currentPage);
     current = currentPage + 1;
     var page = pagination(current, totalPages);
     console.log(page);
-    if (current === 1) {
-        html = page.map(pg => {
-            if (pg == currentPage + 1) {
-                return `
-            <li class="page-item active">
-                <a class="page-link" href="#" disabled="disabled">${pg}</a>
-            </li>
-            `
-            } else {
-                return `
-            <li class="page-item">
-                <a class="page-link" href="shop.html?page=${pg}">${pg}</a>
-            </li>
-            `
-            }
-        })
-        var htmlNext = `
-            <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current + 1) + `">Next</a></li>
-        `;
-        var htmls = html + htmlNext;
-    } else if (current >= totalPages) {
-        var htmlPre = `
-        <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current - 1) + `">Previous</a></li>
-        `;
-        html = page.map(pg => {
-            if (pg == currentPage + 1) {
-                return `
-            <li class="page-item active">
-                <a class="page-link" href="#" disabled="disabled">${pg}</a>
-            </li>
-            `
-            } else {
-                return `
-            <li class="page-item">
-                <a class="page-link" href="shop.html?page=${pg}">${pg}</a>
-            </li>
-            `
-            }
-        })
-        var htmls = htmlPre + html;
+    if (titleParam === null) {
+        if (current === 1) {
+            html = page.map(pg => {
+                if (pg == currentPage + 1) {
+                    return `
+                <li class="page-item active">
+                    <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                </li>
+                `
+                } else if(pg == '...'){
+                    return `
+                    <li class="page-item ">
+                        <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                    </li>
+                    `
+                } else {
+                    return `
+                <li class="page-item">
+                    <a class="page-link" href="shop.html?page=${pg}">${pg}</a>
+                </li>
+                `
+                }
+            })
+            var htmlNext = `
+                <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current + 1) + `">Next</a></li>
+            `;
+            var htmls = html + htmlNext;
+        } else if (current >= totalPages) {
+            var htmlPre = `
+            <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current - 1) + `">Previous</a></li>
+            `;
+            html = page.map(pg => {
+                if (pg == currentPage + 1) {
+                    return `
+                <li class="page-item active">
+                    <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                </li>
+                `
+                } else if(pg == '...'){
+                    return `
+                    <li class="page-item ">
+                        <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                    </li>
+                    `
+                } else {
+                    return `
+                <li class="page-item">
+                    <a class="page-link" href="shop.html?page=${pg}">${pg}</a>
+                </li>
+                `
+                }
+            })
+            var htmls = htmlPre + html;
+        } else {
+            var htmlPre = `
+            <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current - 1) + `">Previous</a></li>
+            `;
+            html = page.map(pg => {
+                if (pg == currentPage + 1) {
+                    return `
+                <li class="page-item active">
+                    <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                </li>
+                `
+                } else if(pg == '...'){
+                    return `
+                    <li class="page-item ">
+                        <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                    </li>
+                    `
+                } else {
+                    return `
+                <li class="page-item">
+                    <a class="page-link" href="shop.html?page=${pg}">${pg}</a>
+                </li>
+                `
+                }
+            })
+            var htmlNext = `
+                <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current + 1) + `">Next</a></li>
+            `;
+            var htmls = htmlPre + html + htmlNext;
+        }
     } else {
-        var htmlPre = `
-        <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current - 1) + `">Previous</a></li>
-        `;
-        html = page.map(pg => {
-            if (pg == currentPage + 1) {
-                return `
-            <li class="page-item active">
-                <a class="page-link" href="#" disabled="disabled">${pg}</a>
-            </li>
-            `
-            } else {
-                return `
-            <li class="page-item">
-                <a class="page-link" href="shop.html?page=${pg}">${pg}</a>
-            </li>
-            `
-            }
-        })
-        var htmlNext = `
-            <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current + 1) + `">Next</a></li>
-        `;
-        var htmls = htmlPre + html + htmlNext;
+        if (current === 1) {
+            html = page.map(pg => {
+                if (pg == currentPage + 1) {
+                    return `
+                <li class="page-item active">
+                    <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                </li>
+                `
+                } else if(pg == '...'){
+                    return `
+                    <li class="page-item ">
+                        <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                    </li>
+                    `
+                } else {
+                    return `
+                <li class="page-item">
+                    <a class="page-link" href="shop.html?page=${pg}&title=${title}">${pg}</a>
+                </li>
+                `
+                }
+            })
+            var htmlNext = `
+                <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current + 1) +`&title=${title}">Next</a></li>
+            `;
+            var htmls = html + htmlNext;
+        } else if (current >= totalPages) {
+            var htmlPre = `
+            <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current - 1) +`&title=${title}">Previous</a></li>
+            `;
+            html = page.map(pg => {
+                if (pg == currentPage + 1) {
+                    return `
+                <li class="page-item active">
+                    <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                </li>
+                `
+                } else if(pg == '...'){
+                    return `
+                    <li class="page-item ">
+                        <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                    </li>
+                    `
+                } else {
+                    return `
+                <li class="page-item">
+                    <a class="page-link" href="shop.html?page=${pg}&title=${title}">${pg}</a>
+                </li>
+                `
+                }
+            })
+            var htmls = htmlPre + html;
+        } else {
+            var htmlPre = `
+            <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current - 1) + `&title=${title}">Previous</a></li>
+            `;
+            html = page.map(pg => {
+                if (pg == currentPage + 1) {
+                    return `
+                <li class="page-item active">
+                    <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                </li>
+                `
+                } else if(pg == '...'){
+                    return `
+                    <li class="page-item ">
+                        <a class="page-link" href="#" disabled="disabled">${pg}</a>
+                    </li>
+                    `
+                } else {
+                    return `
+                <li class="page-item">
+                    <a class="page-link" href="shop.html?page=${pg}&title=${title}">${pg}</a>
+                </li>
+                `
+                }
+            })
+            var htmlNext = `
+                <li class="page-item"><a class="page-link" href="shop.html?page=`+ (current + 1) + `&title=${title}">Next</a></li>
+            `;
+            var htmls = htmlPre + html + htmlNext;
+        }
     }
+    
 
     var paginationHtml = `
     <nav aria-label="..." style="width:100%">
@@ -164,3 +282,4 @@ function GetParameterValues(param) {
 // for (let i = 1, l = 20; i <= l; i++)
 //     console.log(`Selected page ${i}:`, pagination(i, l));
 
+init();
