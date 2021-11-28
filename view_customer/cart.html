@@ -9,7 +9,7 @@
     <link href="../css/style_customer.css" rel="stylesheet">
 </head>
 
-<body >
+<body onload="renderCart()">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
@@ -57,24 +57,7 @@
                 </tr>
             </thead>
             <tbody id="cart_body">
-                <tr class="cart_row">
-                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                    <td><img src="images/shoes/1.jpg"></td>
-                    <td>
-                        <h5>Handbag Fringilla</h5>
-                    </td>
-                    <td>
-                        <h5 id="pprice" class="cart-price">156000 vnd</h5>
-                    </td>
-                    <td>
-                        <input value="1" min="1" class="w-25 pl-1 cart-quantity-input" type="number" onchange="updatecart()">
-                    </td>
-                    <td>
-                        <h5>
-                            <h5 class="sub-total"></h5>
-                        </h5>
-                    </td>
-                </tr>
+                
             </tbody>
         </table>
     </section>
@@ -144,6 +127,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/cart.js"></script>
+    <script src="../js/search.js"></script>
 
     <script>
         function gotoCheckout(){
