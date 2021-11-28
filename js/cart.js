@@ -30,6 +30,7 @@ function addtocart(pid, pimg, price, pname) {
         localStorage.setItem("cart", JSON.stringify(pcart));
     }
     $('#add').attr('disabled',true);
+    updateLenghtCart();
 }
 
 function remove(pid) {
@@ -39,7 +40,7 @@ function remove(pid) {
     pcart.splice(present_or_not, 1);
     localStorage.setItem("cart", JSON.stringify(pcart));
     renderCart();
-
+    updateLenghtCart();
 }
 
 function updateLenghtCart(){

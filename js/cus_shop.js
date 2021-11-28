@@ -37,8 +37,8 @@ function init() {
                             </div>
                             <h5 class="p-name">${item.title}</h5>
                             <h4 class="p-price">${price} VND</h4>
+                            <button class="buy-btn">Buy Now</button>
                         </a>
-                        <button class="buy-btn">Buy Now</button>
                     </div>
                 `;
             })
