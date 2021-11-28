@@ -1,21 +1,12 @@
-<<<<<<< HEAD
 
 // http://localhost/images/productImages/{name}
 $(document).ready(function () {
-=======
-$(document).ready(function(){
->>>>>>> 273d03fad2b769e3137cf071a2d71372fc78566f
     // Show all product
     var pageParam = GetParameterValues('page');
     $.ajax({
         dataType: 'json',
-<<<<<<< HEAD
         url: pageParam != null ? 'http://localhost:8082/api/products?page='+(pageParam-1)+'':"http://localhost:8082/api/products",
         success: function (data) {
-=======
-        url: 'http://localhost:8082/api/products',
-        success: function (data) {     
->>>>>>> 273d03fad2b769e3137cf071a2d71372fc78566f
             var htmls = data.products.map(function (item) {
                 var price = formatCash(item.price+'')
                 return `

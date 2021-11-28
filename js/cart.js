@@ -42,17 +42,20 @@ function remove(pid) {
 
 }
 
+function updateLenghtCart(){
+    var cartstring = localStorage.getItem("cart");
+    var cart = JSON.parse(cartstring);
+    if (cart == null || cart.length == 0) {
+        $("#count").html('');
+    } else {
+        // there is some item in the cart
+        $("#count").html(cart.length);
+    }
+}
+
 function renderCart() {
     var cartstring = localStorage.getItem("cart");
     var cart = JSON.parse(cartstring);
-    // if (cart == null || cart.length == 0) {
-    //     console.log("Cart is empty!!!!");
-    //     $(".add_cart_wrap").html('0');
-    // } else {
-    //     // there is some item in the cart
-    //     console.log(cart);
-    //     $(".add_cart_wrap").html(cartlength);
-    // }
     if (cart == null || cart.length == 0) {
         var html = `
             <h2>There are no products in the cart</h2>
@@ -122,3 +125,5 @@ function formatCash(str) {
         return ((index % 3) ? next : (next + ',')) + prev
     })
 }
+
+updateLenghtCart();
